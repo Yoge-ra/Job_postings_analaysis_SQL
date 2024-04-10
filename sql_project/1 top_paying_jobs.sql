@@ -6,14 +6,9 @@ Query : What are the top paying data analyst jobs?
 */
 
 SELECT 
-    job_id,
     name as company_name,
     job_title,
-    job_title_short,
-    job_schedule_type,
-    job_location,
-    salary_year_avg,
-    job_posted_date
+    salary_year_avg
 FROM 
     job_postings_fact
 LEFT JOIN company_dim on job_postings_fact.company_id = company_dim.company_id 
@@ -23,4 +18,4 @@ WHERE
     salary_year_avg IS NOT NULL
 ORDER BY
     salary_year_avg DESC
-LIMIT 10
+LIMIT 10;
